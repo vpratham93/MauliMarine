@@ -60,4 +60,7 @@
     <Folder Include="dbo" />
     <Folder Include="dbo\Table" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Table\Supplier.sql" />
+  </ItemGroup>
 </Project>

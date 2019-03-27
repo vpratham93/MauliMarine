@@ -1,0 +1,62 @@
+﻿@model PagedList.IPagedList<Materialvw>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Materials";
+}
+
+
+@using (Html.BeginForm("Index", "Material", FormMethod.Get))
+{
+    <table>
+        <tr style="text-align:center">
+            <td>&nbsp;Material Name:</td>
+            <td> @Html.TextBox("Name", ViewBag.CurrentFilter as string, new { @class = "form-control" })</td>
+            <td><input type="submit" value="Search" class="btn btn-primary" /></td>
+        </tr>
+    </table>
+}
+
+<br />
+<span class="create-link px-1 py-1">
+    @Html.ActionLink("Create New", "Manage", "Material")
+</span>
+<br />
+<br />
+<table class="table table-primary">
+    <tr>
+        <th>
+            Material Name
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            Unit Name
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelLocation => item.MaterialName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelLocation => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelLocation => item.UnitName)
+            </td>
+
+            <td>
+                <a href="@Url.Action("Manage","Material",new { id= item.MaterialId})" style="color:blue;">Edit</a>
+            </td>
+        </tr>
+    }
+
+</table>
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+        @Html.PagedListPager(Model, page => Url.Action("Index",
+                 new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

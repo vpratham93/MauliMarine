@@ -1,0 +1,99 @@
+﻿@model Transaction
+
+@{
+                /**/
+
+                ViewBag.Title = "Manage Transactions";
+}
+
+<span>@ViewBag.Title</span>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @if (Model?.TicketNo > 0)
+        {
+            @Html.HiddenFor(model => model.TicketNo)
+        }
+
+        <div class="row">
+            <div class="input-group col-3">
+                <span class="input-group-addon">Veichle Number: </span>&nbsp;
+                @Html.Hidden("VeichleId", (int?)ViewBag.VeichleId)
+                <input value="@ViewBag.VeichleNumber" type="text" placeholder="Veichle Number" id="VeichleNumber" name="VeichleNumber" data-autocomplete-idholder="#VeichleId" data-autocombo-url='@Url.Action("AutoCompleteVeichles")' class="form-control" />
+            </div>
+
+            <div class="input-group col-3">
+                <span class="input-group-addon">Unit</span>&nbsp;
+                @Html.DropDownListFor(model => model.UnitId, null, "Select Unit", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.UnitId, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="input-group col-3">
+                <span class="input-group-addon">Material</span>&nbsp;
+                @Html.DropDownListFor(model => model.MaterialId, null, "Select Material", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MaterialId, "", new { @class = "text-danger" })
+            </div>
+
+
+            <div class="input-group col-3">
+                <span class="input-group-addon">Supplier</span>&nbsp;
+                @Html.DropDownListFor(model => model.SupplierId, null, "Select Supplier", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SupplierId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+        <div class="row">
+
+            <div class="input-group col-3">
+                <span class="input-group-addon">Loaded Weight</span>&nbsp;
+                @Html.EditorFor(model => model.LoadedWeight, new { htmlAttributes = new { @class = "input form-control", placeholder = "Loaded Weight", @type = "text" } })
+                @Html.ValidationMessageFor(model => model.LoadedWeight, "", new { @class = "text-danger" })
+            </div>
+
+
+            <div class="input-group col-3">
+                <span class="input-group-addon">Empty Weight</span>&nbsp;
+                @Html.EditorFor(model => model.EmptyWeight, new { htmlAttributes = new { @class = "input form-control", placeholder = "Empty Weight", @type = "text" } })
+                @Html.ValidationMessageFor(model => model.EmptyWeight, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="input-group col-2">
+                <span class="input-group-addon">Net Weight</span>&nbsp;
+                @Html.EditorFor(model => model.NetWeight, new { htmlAttributes = new { @class = "netwt form-control", placeholder = "Net Weight", @type = "text" } })
+                @Html.ValidationMessageFor(model => model.NetWeight, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="input-group col-3">
+                <span class="input-group-addon">Amount Taken</span>&nbsp;
+                @Html.EditorFor(model => model.RecievedAmt, new { htmlAttributes = new { @class = "form-control", placeholder = "Amount", @type = "text" } })
+                @Html.ValidationMessageFor(model => model.RecievedAmt, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group col-1">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script>
+
+    $(function () {
+        $(".input").change(function () {
+            var toplan = 0;
+            $(".input").each(function () {
+                toplan = toplan + parseInt($(this).val());
+            });
+            $(".netwt").val(toplan);
+        });
+    });
+</script>

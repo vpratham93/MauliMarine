@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="6e5764f2-78a9-4dd6-83d1-e565034dbc3c" ChangeDateTime="03/21/2019 15:55:11">
+    <Property Name="ElementName" Value="[dbo].[Supplier].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Supplier]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="SupplierId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="25a4dc77-a218-437c-b9b4-f239ba39e776" ChangeDateTime="03/21/2019 15:59:35">
+    <Property Name="ElementName" Value="[dbo].[Transactions].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Transactions]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TicketNo" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="97778cd9-8020-4cfc-a046-d4607fbcf649" ChangeDateTime="03/23/2019 12:17:32">
+    <Property Name="ElementName" Value="[dbo].[VeichleEntry].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[VeichleEntry]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="VeichleId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d5b0d453-d806-4f34-a41b-bb06e7c5fd4f" ChangeDateTime="03/23/2019 12:17:59">
+    <Property Name="ElementName" Value="[dbo].[Transactions].[VeichleNo]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Transactions]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="VeichleId" />
+  </Operation>
+</Operations>

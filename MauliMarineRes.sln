@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauliMarineRes", "MauliMarineRes\MauliMarineRes.csproj", "{D8D212DD-F73C-4494-BEF2-85CA2A8576FD}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MauliMarineREDB", "MauliMarineREDB\MauliMarineREDB.sqlproj", "{F8CBB197-33F1-4625-B733-5321C179D647}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MauliMarineDBRES", "MauliMarineREDB\MauliMarineDBRES\MauliMarineDBRES.sqlproj", "{B1C16205-5995-4E5C-AEC5-E5F50AD79D8C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +17,12 @@ Global
 		{D8D212DD-F73C-4494-BEF2-85CA2A8576FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8D212DD-F73C-4494-BEF2-85CA2A8576FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8D212DD-F73C-4494-BEF2-85CA2A8576FD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F8CBB197-33F1-4625-B733-5321C179D647}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F8CBB197-33F1-4625-B733-5321C179D647}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F8CBB197-33F1-4625-B733-5321C179D647}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{F8CBB197-33F1-4625-B733-5321C179D647}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F8CBB197-33F1-4625-B733-5321C179D647}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F8CBB197-33F1-4625-B733-5321C179D647}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B1C16205-5995-4E5C-AEC5-E5F50AD79D8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1C16205-5995-4E5C-AEC5-E5F50AD79D8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1C16205-5995-4E5C-AEC5-E5F50AD79D8C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B1C16205-5995-4E5C-AEC5-E5F50AD79D8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1C16205-5995-4E5C-AEC5-E5F50AD79D8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1C16205-5995-4E5C-AEC5-E5F50AD79D8C}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,43 @@
+﻿@model PagedList.IPagedList<Unit>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm("Index", "Unit", FormMethod.Get))
+{
+    <table>
+        <tr style="text-align:center">
+            <td>&nbsp;Unit Name:</td>
+            <td> @Html.TextBox("Name", ViewBag.CurrentFilter as string, new { @class = "form-control" })</td>
+            <td><input type="submit" value="Search" class="btn btn-primary" /></td>
+        </tr>
+    </table>
+
+}
+<br />
+<span class="create-link px-1 py-1">
+    @Html.ActionLink("Create New", "Manage", "Unit")
+</span>
+<br />
+<br />
+<table class="table table-primary">
+    <tr>
+        <th>
+            Unit Name
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelLocation => item.UnitName)</td>
+            <td><a href="@Url.Action("Manage","Unit",new { id= item.UnitId})" style="color:blue;">Edit</a></td>
+        </tr>
+    }
+</table>
+ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+                         new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

@@ -1,0 +1,67 @@
+﻿body {
+    background-color: whitesmoke;
+    color: crimson;
+    padding: 0!important;
+    height:auto;
+    overflow-y:auto;
+}
+
+a{
+    color:white;
+    font-family:'Arial MT';
+    font-size:14px;
+    font-weight:normal;
+    text-decoration:none;
+    line-height:10px;
+    vertical-align:middle;
+}
+
+a:hover
+{
+    text-decoration:none;
+    color:white;
+}
+
+p {
+    color: black;
+    font-family: 'Arial MT';
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.account-link a
+{
+    background-color:darkblue;
+    padding:5px;
+    border-radius:10px;
+}
+
+.login li a {
+    background-color: darkblue;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.create-link,
+.back-link
+{
+    background-color: darkblue;
+}
+
+
+.pagination a {
+    padding: 1px 10px;
+    background-color: lightcoral;
+    border-radius: 8px;
+    color: white;
+}
+
+.pagination .active a {
+    background-color: crimson;
+    color: white;
+    border:none!important;
+}
+
+footer {
+    background-color: transparent;
+}

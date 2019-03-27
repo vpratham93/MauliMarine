@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Transactionvw>
+
+@{
+    ViewBag.Title = "Transaction Rpeorts";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table table-primary">
+    @using (Html.BeginForm("Index", "Reports", FormMethod.Get))
+    {
+        <tr>
+            <th>
+                @Html.TextBox("ticketno", null, new { @class = "tktno form-control" })
+            </th>
+            <th>
+                @Html.DropDownList("VehicleId", null, "Select Vehicle", new { @class = "supplier form-control" })
+            </th>
+            <th>
+                @Html.DropDownList("SupplierId", null, "Select Supplier", new { @class = "supplier form-control" })
+            </th>
+            <th>
+                @Html.DropDownList("MaterialId", null, "Select Material", new { @class = "material form-control" })
+            </th>
+            <th>
+                <input type="submit" class="btn btn-primary search" value="Search" />
+            </th>
+        </tr>
+    }
+    <tr>
+
+        <th>
+            Ticket Number
+        </th>
+        <th>
+            Veichle Number
+        </th>
+        <th>
+            Supplier
+        </th>
+        <th>
+            Material
+        </th>
+        <th>
+            Unit
+        </th>
+        <th>
+            Loaded Weight
+        </th>
+        <th>
+            Empty Weight
+        </th>
+        <th>
+            Net Weight
+        </th>
+
+        <th>
+            Amount
+        </th>
+        <th>
+            Transaction Date
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelLocation => item.TicketNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelLocation => item.VeichleNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelLocation => item.SupplierName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelLocation => item.MaterialName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelLocation => item.UnitName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelLocation => item.LoadedWeight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelLocation => item.EmptyWeight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelLocation => item.NetWeight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelLocation => item.RecievedAmt) Rs
+            </td>
+            <td>
+                @Html.DisplayFor(modelLocation => item.Tdate)
+            </td>
+        </tr>
+    }
+
+</table>
+

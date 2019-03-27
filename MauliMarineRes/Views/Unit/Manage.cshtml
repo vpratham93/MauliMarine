@@ -1,0 +1,45 @@
+﻿@model Unit
+
+@{
+    ViewBag.Title = "Manage Units";
+}
+
+<span class="back-link px-1 py-1">
+    @Html.ActionLink("Back to Index", "Index", "Unit")
+</span>
+<br />
+<br />
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Enter Unit</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @if (Model?.UnitId > 0)
+        {
+            @Html.HiddenFor(model => model.UnitId)
+        }
+        <div class="form-group">
+            @Html.LabelFor(model => model.UnitName, "Unit Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UnitName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UnitName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+      
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

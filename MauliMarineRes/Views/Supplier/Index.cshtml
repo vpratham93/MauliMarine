@@ -1,0 +1,59 @@
+﻿@model PagedList.IPagedList<Supplier>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm("Index", "Supplier", FormMethod.Get))
+{
+    <table>
+        <tr style="text-align:center">
+            <td>&nbsp;Supplier Name:</td>
+            <td> @Html.TextBox("Name", ViewBag.CurrentFilter as string, new { @class = "form-control" })</td>
+            <td><input type="submit" value="Search" class="btn btn-primary" /></td>
+        </tr>
+    </table>
+
+}
+<br/>
+    <span class="create-link px-1 py-1">
+        @Html.ActionLink("Create New", "Manage", "Supplier")
+    </span>
+<br />
+<br />
+<table class="table table-primary">
+    <tr>
+        <th>
+            Supplier Name
+        </th>
+        <th>
+            Contact Name
+        </th>
+        <th>
+            Contact Number
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Address
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelLocation => item.SupplierName)</td>
+            <td>@Html.DisplayFor(modelLocation => item.ContactName)</td>
+            <td>@Html.DisplayFor(modelLocation => item.ContactNo)</td>
+            <td>@Html.DisplayFor(modelLocation => item.Email)</td>
+            <td>@Html.DisplayFor(modelLocation => item.Address)</td>
+            <td><a href="@Url.Action("Manage","Supplier",new { id= item.SupplierId})" style="color:blue;">Edit</a></td>
+        </tr>
+    }
+</table>
+ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+                         new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

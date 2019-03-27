@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Transactionvw>
+
+<style>
+    body {
+        background-color: transparent;
+        font-family: 'Lucida Sans Typewriter';
+    }
+
+    .navbar, footer {
+        display: none;
+    }
+
+    p {
+        line-height: 10px;
+    }
+
+</style>
+<div class="row">
+    <div class="col-6 text-left">
+        <a href="@Url.Action("Index","Transactions")" style="color:blue;">Back</a>
+    </div>
+    <div class="col-6 text-right">
+        <input type="button" onclick="javascript:window.print();" value="Print" class="section-to-not-print" />
+    </div>
+</div>
+<div class="text-center" style="font-family:'serif'">
+    <h1>Mauli Marine Agro & Poultry Feed</h1>
+    <p>A/p Insuli, Konwada, Tal-Sawantwadi,</p>
+    <p>Dist-Sindhudurg, State-Maharashtra,</p>
+    <p>Contact - 9404395903</p>
+</div>
+
+<table class="table table-active">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <strong>Ticket No</strong> - @item.TicketNo
+            </td>
+            <td>
+                <strong>Vehicle Number</strong> - @item.VeichleNumber
+            </td>
+            <td>
+                <strong>Date</strong> - @($"{item.Tdate:dd/MM/yyyy}")
+            </td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <th>Charges</th>
+        </tr>
+        <tr>
+            <td><strong>Loaded Weight</strong></td>
+            <td> @item.LoadedWeight  @item.UnitName</td>
+            <td>@($"{DateTime.Today:dd/MM/yyyy}")</td>
+            <td>@($"{DateTime.Now:hh:mm:ss tt}")</td>
+        </tr>
+        <tr>
+            <td><strong>Empty Weight </strong></td>
+            <td>@item.EmptyWeight  @item.UnitName</td>
+            <td>@($"{DateTime.Today:dd/MM/yyyy}")</td>
+            <td>@($"{DateTime.Now:hh:mm:ss tt}")</td>
+        </tr>
+        <tr>
+            <td><strong>Net Weight </strong></td>
+            <td>@item.NetWeight @item.UnitName</td>
+            <td>@($"{DateTime.Today:dd/MM/yyyy}")</td>
+            <td>@($"{DateTime.Now:hh:mm:ss tt}")</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><strong>Total:</strong></td>
+            <td>Rs. @item.RecievedAmt</td>
+        </tr>
+
+    }
+
+</table>
+<br />
+<br />
+<br />
+<div class="row">
+    <div class="col-6">
+        <p class="text-left">Opertaor Sign</p>
+    </div>
+    <div class="col-6">
+        <p class="text-right">Proprietor Sign</p>
+    </div>
+</div>
+
+
+
